@@ -30,7 +30,6 @@ interface GhentApiService {
     suspend fun getPharmacies(): GetPharmaciesApiModel
 }
 
-
 /**
  * A public Api object that exposes the lazy-initialized Retrofit service
  */
