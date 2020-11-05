@@ -7,7 +7,6 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
-
 class MyApplication : Application() {
 
     override fun onCreate() {
@@ -15,9 +14,10 @@ class MyApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MyApplication)
-            modules(networkModule,
-                viewModelModule)
-
+            modules(
+                networkModule,
+                viewModelModule
+            )
         }
     }
 }

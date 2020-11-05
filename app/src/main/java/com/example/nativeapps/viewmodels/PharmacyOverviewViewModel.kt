@@ -4,14 +4,10 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-
-
 import androidx.lifecycle.viewModelScope
 import com.example.nativeapps.api.GhentApiService
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import org.koin.java.KoinJavaComponent.inject
-
 
 class PharmacyOverviewViewModel(private val service: GhentApiService) : ViewModel() {
 

@@ -11,7 +11,6 @@ import org.koin.android.ext.android.inject
 
 class PharmacyOverviewFragment : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

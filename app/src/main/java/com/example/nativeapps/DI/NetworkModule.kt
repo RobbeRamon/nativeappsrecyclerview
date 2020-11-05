@@ -40,9 +40,13 @@ private fun provideRetrofit(
     BASE_URL: String
 ): Retrofit =
     Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create( Moshi.Builder().add(
-            KotlinJsonAdapterFactory()
-        ).build()))
+        .addConverterFactory(
+            MoshiConverterFactory.create(
+                Moshi.Builder().add(
+                    KotlinJsonAdapterFactory()
+                ).build()
+            )
+        )
         .baseUrl(BASE_URL)
         .client(okHttpClient)
         .build()
