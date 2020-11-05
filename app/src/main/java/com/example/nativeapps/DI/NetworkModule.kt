@@ -10,7 +10,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-val appModule = module {
+val networkModule = module {
     single { provideOkHttpClient() }
     single { provideRetrofit(get(), BuildConfig.BASE_URL) }
     single {
@@ -32,6 +32,9 @@ private fun provideOkHttpClient() = if (BuildConfig.DEBUG) {
     .Builder()
     .build()
 
+/**
+ * Provide the retrofti instance
+ */
 private fun provideRetrofit(
     okHttpClient: OkHttpClient,
     BASE_URL: String
@@ -44,5 +47,8 @@ private fun provideRetrofit(
         .client(okHttpClient)
         .build()
 
+/**
+ * Provide the API service
+ */
 private fun provideApiService(retrofit: Retrofit): GhentApiService =
     retrofit.create(GhentApiService::class.java)

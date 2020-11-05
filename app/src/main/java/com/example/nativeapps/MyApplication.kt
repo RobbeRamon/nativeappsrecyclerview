@@ -1,7 +1,7 @@
 package com.example.nativeapps
 
 import android.app.Application
-import com.example.nativeapps.DI.appModule
+import com.example.nativeapps.DI.networkModule
 import com.example.nativeapps.DI.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -15,7 +15,7 @@ class MyApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@MyApplication)
-            modules(appModule,
+            modules(networkModule,
                 viewModelModule)
 
         }
