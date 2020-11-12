@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">nativeapps</string>
     <string name="pharmacies_in_ghent">Pharmacies in Ghent</string>
+    <string name="show_pharmacy">Show Pharmacy</string>
+    <string name="placeholder">Placeholder</string>
 </resources>

@@ -22,7 +22,6 @@ class PharmacyOverviewViewModel(private val service: GhentApiService) : ViewMode
 
     private fun getPharmacies() {
         viewModelScope.launch {
-
             try {
                 val result = service.getPharmacies()
                 _pharmacies.value = result.records
