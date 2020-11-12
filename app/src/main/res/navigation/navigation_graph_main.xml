@@ -9,5 +9,17 @@
         android:id="@+id/pharmacyOverviewFragment"
         android:name="com.example.nativeapps.PharmacyOverviewFragment"
         android:label="PharmacyOverviewFragment"
-        tools:layout="@layout/fragment_pharmacy_overview" />
+        tools:layout="@layout/fragment_pharmacy_overview" >
+        <action
+            android:id="@+id/action_pharmacyOverviewFragment_to_pharmacyDetailFragment"
+            app:destination="@id/pharmacyDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pharmacyDetailFragment"
+        android:name="com.example.nativeapps.PharmacyDetailFragment"
+        android:label="PharmacyDetailFragment" >
+        <argument
+            android:name="pharmacy"
+            app:argType="com.example.nativeapps.data.Pharmacy" />
+    </fragment>
 </navigation>

@@ -1,6 +1,7 @@
 package com.example.nativeapps.data
 
 import com.squareup.moshi.Json
+import java.io.Serializable
 
 data class PharmacyFields(
     @Json(name = "straat")
@@ -15,4 +16,4 @@ data class PharmacyFields(
     val phone: String,
     @Json(name = "gemeente")
     val city: String
-)
+): Serializable
