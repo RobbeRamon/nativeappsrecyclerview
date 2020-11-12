@@ -6,15 +6,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.nativeapps.api.GhentApiService
+import com.example.nativeapps.data.Pharmacy
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class PharmacyOverviewViewModel(private val service: GhentApiService) : ViewModel() {
 
-    private var viewModelJob = Job()
-    private var _response = MutableLiveData<String>()
+    private var _response = MutableLiveData<List<Pharmacy>>()
 
-    val response: LiveData<String>
+    val response: LiveData<List<Pharmacy>>
         get() = _response
 
     init {
@@ -23,19 +23,13 @@ class PharmacyOverviewViewModel(private val service: GhentApiService) : ViewMode
 
     private fun getPharmacies() {
         viewModelScope.launch {
-
             try {
                 val result = service.getPharmacies()
-                _response.value = "Success: ${result.records.size} pharmacies retrieved"
+                _response.value = result.records
             } catch (e: Exception) {
                 Log.e("Failure: ", e.message, e)
-                _response.value = "Failure: ${e.message}"
             }
         }
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
-    }
 }
