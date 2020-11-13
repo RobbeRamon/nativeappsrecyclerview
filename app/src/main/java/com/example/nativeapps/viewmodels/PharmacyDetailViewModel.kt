@@ -7,7 +7,6 @@ import com.example.nativeapps.data.Pharmacy
 
 class PharmacyDetailViewModel : ViewModel() {
 
-
     private var _pharmacy = MutableLiveData<Pharmacy>()
     val pharmacy: LiveData<Pharmacy>
         get() = _pharmacy

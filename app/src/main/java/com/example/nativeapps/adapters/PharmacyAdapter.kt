@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.nativeapps.data.Pharmacy
 import com.example.nativeapps.databinding.ListItemPharmacyBinding
-import com.example.nativeapps.databinding.ListItemPharmacyBindingImpl
 
 class PharmacyAdapter(private var pharmacyClickListener: PharmacyClickListener) :
     ListAdapter<Pharmacy, PharmacyViewHolder>(PharmacyDiffCallback()) {
@@ -31,8 +30,6 @@ class PharmacyAdapter(private var pharmacyClickListener: PharmacyClickListener) 
     }
 }
 
-
-
 private class PharmacyDiffCallback : DiffUtil.ItemCallback<Pharmacy>() {
     override fun areItemsTheSame(oldItem: Pharmacy, newItem: Pharmacy): Boolean {
         return oldItem.pharmacyId == newItem.pharmacyId
@@ -42,7 +39,6 @@ private class PharmacyDiffCallback : DiffUtil.ItemCallback<Pharmacy>() {
         return oldItem == newItem
     }
 }
-
 
 interface PharmacyClickListener {
     fun onPharmacyClicked(pharmacy: Pharmacy)

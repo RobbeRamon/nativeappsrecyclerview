@@ -9,4 +9,4 @@ data class Pharmacy(
     @Json(name = "recordid")
     val pharmacyId: String,
     val fields: PharmacyFields
-): Parcelable
+) : Parcelable

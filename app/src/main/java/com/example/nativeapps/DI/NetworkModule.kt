@@ -2,6 +2,8 @@ package com.example.nativeapps.DI
 
 import com.example.nativeapps.BuildConfig
 import com.example.nativeapps.api.GhentApiService
+import com.example.nativeapps.api.PharmacyRemoteDataSource
+import com.example.nativeapps.repos.PharmacyRepository
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -16,6 +18,8 @@ val networkModule = module {
     single {
         provideApiService(get())
     }
+    single{PharmacyRemoteDataSource(get())}
+    single{PharmacyRepository(get())}
 }
 
 /**
