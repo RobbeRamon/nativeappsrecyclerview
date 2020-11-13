@@ -1,6 +1,7 @@
 package com.example.nativeapps.UI
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,6 +71,7 @@ class PharmacyOverviewFragment : Fragment(), PharmacyClickListener {
     }
 
     override fun onPharmacyClicked(pharmacy: Pharmacy) {
+        Log.i("TAG", "Ik wil navigerern")
         navigateToDetail(pharmacy)
     }
 

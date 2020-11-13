@@ -18,8 +18,8 @@ val networkModule = module {
     single {
         provideApiService(get())
     }
-    single{PharmacyRemoteDataSource(get())}
-    single{PharmacyRepository(get())}
+    single { PharmacyRemoteDataSource(get()) }
+    single { PharmacyRepository(get()) }
 }
 
 /**

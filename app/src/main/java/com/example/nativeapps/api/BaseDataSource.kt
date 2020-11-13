@@ -4,7 +4,6 @@ import android.util.Log
 import com.example.nativeapps.util.Resource
 import retrofit2.Response
 
-
 /**
  * Encapsulate the Retrofit response in a Resource, so that we can catch errors nicely.
  */
@@ -25,6 +24,6 @@ abstract class BaseDataSource {
 
     private fun <T> error(message: String): Resource<T> {
         Log.e("remoteDataSource", message)
-        return Resource.error(data = null,"Network call has failed for a following reason: $message")
+        return Resource.error(data = null, "Network call has failed for a following reason: $message")
     }
 }
