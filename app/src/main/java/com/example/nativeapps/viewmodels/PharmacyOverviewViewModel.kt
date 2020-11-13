@@ -7,28 +7,22 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.nativeapps.api.GhentApiService
 import com.example.nativeapps.data.Pharmacy
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+import androidx.lifecycle.liveData
+import com.example.nativeapps.data.GetPharmaciesApiModel
+import com.example.nativeapps.util.Resource
 
 class PharmacyOverviewViewModel(private val service: GhentApiService) : ViewModel() {
 
-    private var _pharmacies = MutableLiveData<List<Pharmacy>>()
-    val pharmacies: LiveData<List<Pharmacy>>
-        get() = _pharmacies
 
-    init {
-        getPharmacies()
-    }
-
-    private fun getPharmacies() {
-        viewModelScope.launch {
-            try {
-                val result = service.getPharmacies()
-                _pharmacies.value = result.records
-                result.records
-            } catch (e: Exception) {
-                Log.e("Failure: ", e.message, e)
-            }
+    val pharmacies: LiveData<Resource<GetPharmaciesApiModel>> = liveData(Dispatchers.IO){
+        emit(Resource.loading(data = null))
+        try{
+            emit(Resource.success(data = service.getPharmacies()))
+        }catch(exception: Exception){
+            emit(Resource.error(data = null, message = exception.message))
         }
     }
+
+
 }

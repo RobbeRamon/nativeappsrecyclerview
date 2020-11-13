@@ -12,6 +12,9 @@ import com.example.nativeapps.adapters.PharmacyAdapter
 import com.example.nativeapps.adapters.PharmacyClickListener
 import com.example.nativeapps.data.Pharmacy
 import com.example.nativeapps.databinding.FragmentPharmacyOverviewBinding
+import com.example.nativeapps.util.Resource
+import com.example.nativeapps.util.Status
+import com.example.nativeapps.util.Status.SUCCESS
 import com.example.nativeapps.viewmodels.PharmacyOverviewViewModel
 import org.koin.android.ext.android.inject
 
@@ -34,7 +37,8 @@ class PharmacyOverviewFragment : Fragment(), PharmacyClickListener {
         binding.adapter = adapter
 
         viewModel.pharmacies.observe(viewLifecycleOwner, Observer {
-            adapter.submitList(it)
+            if(it.status == SUCCESS)
+                adapter.submitList(it.data?.records)
         })
 
         return binding.root

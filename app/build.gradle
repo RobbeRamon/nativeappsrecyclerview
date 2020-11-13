@@ -50,6 +50,14 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
+
+    //LifeCycle
+    implementation "androidx.lifecycle:lifecycle-common:$life_cycle"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$life_cycle"
+    implementation "android.arch.lifecycle:extensions:$life_cycle"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$life_cycle"
+
+
     //Moshi
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
 
