@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/pharmacyOverviewFragment"
-        android:name="com.example.nativeapps.PharmacyOverviewFragment"
+        android:name="com.example.nativeapps.UI.PharmacyOverviewFragment"
         android:label="PharmacyOverviewFragment"
         tools:layout="@layout/fragment_pharmacy_overview" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/pharmacyDetailFragment"
-        android:name="com.example.nativeapps.PharmacyDetailFragment"
+        android:name="com.example.nativeapps.UI.PharmacyDetailFragment"
         android:label="PharmacyDetailFragment" >
         <argument
             android:name="pharmacy"

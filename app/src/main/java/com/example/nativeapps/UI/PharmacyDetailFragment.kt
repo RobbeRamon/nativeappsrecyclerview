@@ -1,4 +1,4 @@
-package com.example.nativeapps
+package com.example.nativeapps.UI
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+
 import com.example.nativeapps.databinding.FragmentPharmacyDetailBinding
 import com.example.nativeapps.viewmodels.PharmacyDetailViewModel
 import org.koin.android.ext.android.inject

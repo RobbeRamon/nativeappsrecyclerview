@@ -1,10 +1,9 @@
-package com.example.nativeapps
+package com.example.nativeapps.UI
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -12,16 +11,14 @@ import com.example.nativeapps.adapters.PharmacyAdapter
 import com.example.nativeapps.adapters.PharmacyClickListener
 import com.example.nativeapps.data.Pharmacy
 import com.example.nativeapps.databinding.FragmentPharmacyOverviewBinding
-import com.example.nativeapps.util.Resource
-import com.example.nativeapps.util.Status
-import com.example.nativeapps.util.Status.SUCCESS
+import com.example.nativeapps.util.Status.*
 import com.example.nativeapps.viewmodels.PharmacyOverviewViewModel
 import org.koin.android.ext.android.inject
 
 class PharmacyOverviewFragment : Fragment(), PharmacyClickListener {
 
     private lateinit var adapter : PharmacyAdapter
-
+    private val loadingDialogFragment by lazy { LoadingFragment() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,11 +34,40 @@ class PharmacyOverviewFragment : Fragment(), PharmacyClickListener {
         binding.adapter = adapter
 
         viewModel.pharmacies.observe(viewLifecycleOwner, Observer {
-            if(it.status == SUCCESS)
-                adapter.submitList(it.data?.records)
+            it?.let { resource ->
+                when(resource.status){
+                    SUCCESS -> {
+                        showProgress(false)
+                        adapter.submitList(resource.data?.records)
+                    }
+                    LOADING -> {
+                        showProgress(true)
+                    }
+                    ERROR ->{
+                        showProgress(false)
+                    }
+            }
+
+
+
+        }
+
         })
 
         return binding.root
+    }
+
+    private fun showProgress(b: Boolean) {
+        if(b){
+            if (!loadingDialogFragment.isAdded){
+                loadingDialogFragment.show(requireActivity().supportFragmentManager, "loader")
+            }
+        }else{
+            if (loadingDialogFragment.isAdded) {
+                loadingDialogFragment.dismissAllowingStateLoss()
+            }
+        }
+
     }
 
     override fun onPharmacyClicked(pharmacy: Pharmacy) {
@@ -49,7 +75,10 @@ class PharmacyOverviewFragment : Fragment(), PharmacyClickListener {
     }
 
     private fun navigateToDetail(pharmacy: Pharmacy) {
-        val directions = PharmacyOverviewFragmentDirections.actionPharmacyOverviewFragmentToPharmacyDetailFragment(pharmacy)
+        val directions =
+            PharmacyOverviewFragmentDirections.actionPharmacyOverviewFragmentToPharmacyDetailFragment(
+                pharmacy
+            )
         findNavController().navigate(directions)
     }
 }

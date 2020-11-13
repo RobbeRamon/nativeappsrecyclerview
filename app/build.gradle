@@ -71,11 +71,14 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
 
     // Koin AndroidX Scope features
-        implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
     // Koin AndroidX ViewModel features
-        implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
     // Koin AndroidX Fragment features
-        implementation "org.koin:koin-androidx-fragment:$koin_version"
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
 
     testImplementation 'junit:junit:4.+'
