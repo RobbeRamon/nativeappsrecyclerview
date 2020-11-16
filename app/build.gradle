@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-android-extensions'
     id "org.jlleitschuh.gradle.ktlint"
+    id "androidx.navigation.safeargs.kotlin"
 }
 
 android {
@@ -49,6 +50,14 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
+
+    //LifeCycle
+    implementation "androidx.lifecycle:lifecycle-common:$life_cycle"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$life_cycle"
+    implementation "android.arch.lifecycle:extensions:$life_cycle"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$life_cycle"
+
+
     //Moshi
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
 
@@ -62,11 +71,14 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
 
     // Koin AndroidX Scope features
-        implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
     // Koin AndroidX ViewModel features
-        implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
     // Koin AndroidX Fragment features
-        implementation "org.koin:koin-androidx-fragment:$koin_version"
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 
 
     testImplementation 'junit:junit:4.+'
