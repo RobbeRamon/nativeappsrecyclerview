@@ -11,6 +11,8 @@ buildscript {
         nav_version = "2.3.1"
         life_cycle = "2.2.0"
         lottieVersion = "3.5.0"
+        espresso_version = "3.3.0"
+        junit_version = "1.1.2"
     }
     repositories {
         google()

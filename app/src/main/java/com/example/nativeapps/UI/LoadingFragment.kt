@@ -23,8 +23,7 @@ class LoadingFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        val backgroundDrawable =
-            dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         isCancelable = false
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_loading, container, false)
