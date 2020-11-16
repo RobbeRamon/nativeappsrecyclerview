@@ -32,6 +32,6 @@ jobs:
         
       # Build the application and invoke both the assemble and check tasks
       - name: Execute the build
-        run: ./gradle build
+        run: ./gradlew build
           
           
