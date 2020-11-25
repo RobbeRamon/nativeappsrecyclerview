@@ -1,6 +1,6 @@
-package com.example.nativeapps.api
+package com.example.nativeapps.data.remote
 
-import com.example.nativeapps.data.GetPharmaciesApiModel
+import com.example.nativeapps.model.GetPharmaciesApiModel
 import retrofit2.Response
 import retrofit2.http.GET
 

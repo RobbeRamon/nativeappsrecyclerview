@@ -5,7 +5,7 @@
     <data>
         <variable
             name="pharmacy"
-            type="com.example.nativeapps.data.Pharmacy" />
+            type="com.example.nativeapps.model.Pharmacy" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

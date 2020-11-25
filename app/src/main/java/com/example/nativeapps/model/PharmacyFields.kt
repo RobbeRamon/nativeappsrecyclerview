@@ -1,4 +1,4 @@
-package com.example.nativeapps.data
+package com.example.nativeapps.model
 
 import android.os.Parcelable
 import com.squareup.moshi.Json

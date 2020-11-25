@@ -1,13 +1,16 @@
 package com.example.nativeapps.DI
 
 import com.example.nativeapps.BuildConfig
-import com.example.nativeapps.api.GhentApiService
-import com.example.nativeapps.api.PharmacyRemoteDataSource
+import com.example.nativeapps.data.local.AppDatabase
+import com.example.nativeapps.data.local.PharmacyLocalDataSource
+import com.example.nativeapps.data.remote.GhentApiService
+import com.example.nativeapps.data.remote.PharmacyRemoteDataSource
 import com.example.nativeapps.repos.PharmacyRepository
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -18,8 +21,10 @@ val networkModule = module {
     single {
         provideApiService(get())
     }
+    single { AppDatabase.getDatabase(androidApplication()).pharmacyDao() }
     single { PharmacyRemoteDataSource(get()) }
-    single { PharmacyRepository(get()) }
+    single { PharmacyLocalDataSource(get()) }
+    single { PharmacyRepository(get(), get()) }
 }
 
 /**

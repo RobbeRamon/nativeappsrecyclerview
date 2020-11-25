@@ -1,4 +1,4 @@
-package com.example.nativeapps.data
+package com.example.nativeapps.model
 
 data class GetPharmaciesApiModel(
     val records: List<Pharmacy>
