@@ -10,8 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.nativeapps.adapters.PharmacyAdapter
 import com.example.nativeapps.adapters.PharmacyClickListener
-import com.example.nativeapps.model.Pharmacy
 import com.example.nativeapps.databinding.FragmentPharmacyOverviewBinding
+import com.example.nativeapps.model.Pharmacy
 import com.example.nativeapps.util.Status.ERROR
 import com.example.nativeapps.util.Status.LOADING
 import com.example.nativeapps.util.Status.SUCCESS

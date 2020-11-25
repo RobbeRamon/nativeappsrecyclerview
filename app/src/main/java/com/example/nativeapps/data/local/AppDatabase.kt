@@ -7,7 +7,6 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.nativeapps.model.Pharmacy
 
-
 @Database(entities = [Pharmacy::class], version = 1, exportSchema = false)
 @TypeConverters(PharmacyFieldsConverter::class)
 abstract class AppDatabase : RoomDatabase() {
@@ -25,5 +24,4 @@ abstract class AppDatabase : RoomDatabase() {
                 .fallbackToDestructiveMigration()
                 .build()
     }
-
 }

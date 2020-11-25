@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.example.nativeapps.model.Pharmacy
 import com.example.nativeapps.databinding.ListItemPharmacyBinding
+import com.example.nativeapps.model.Pharmacy
 
 class PharmacyAdapter(private var pharmacyClickListener: PharmacyClickListener) :
     ListAdapter<Pharmacy, PharmacyViewHolder>(PharmacyDiffCallback()) {

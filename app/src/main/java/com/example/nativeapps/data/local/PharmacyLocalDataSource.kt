@@ -1,9 +1,8 @@
 package com.example.nativeapps.data.local
 
-import androidx.lifecycle.LiveData
 import com.example.nativeapps.model.Pharmacy
 
-class PharmacyLocalDataSource (val pharmacyDao: PharmacyDao) {
+class PharmacyLocalDataSource(val pharmacyDao: PharmacyDao) {
 
     fun getPharmacies() = pharmacyDao.getAllPharmacies()
 
