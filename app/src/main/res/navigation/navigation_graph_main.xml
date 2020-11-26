@@ -20,6 +20,6 @@
         android:label="PharmacyDetailFragment" >
         <argument
             android:name="pharmacy"
-            app:argType="com.example.nativeapps.data.Pharmacy" />
+            app:argType="com.example.nativeapps.model.Pharmacy" />
     </fragment>
 </navigation>

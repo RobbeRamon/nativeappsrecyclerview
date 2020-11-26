@@ -1,4 +1,6 @@
-package com.example.nativeapps.api
+package com.example.nativeapps.data.remote
+
+import com.example.nativeapps.data.BaseDataSource
 
 class PharmacyRemoteDataSource(val apiService: GhentApiService) : BaseDataSource() {
 
